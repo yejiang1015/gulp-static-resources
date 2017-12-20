@@ -6,7 +6,6 @@ var connect = require('gulp-connect');
 var open = require('gulp-open');
 var livereload = require('gulp-livereload');
 var runSequence = require('run-sequence');
-var fileinclude = require('gulp-file-include');
 var clean = require('gulp-clean');
 var plumber = require('gulp-plumber');
 var changed = require('gulp-changed');
@@ -65,28 +64,17 @@ gulp.task('copy', function() {
 /**
  * 增量：编译模板
  */
-// gulp.task('includefile', function() {
-//     // return gulp.src(['src/**/*.{html, tpl}', '!src/include', '!src/include/*'])
-//     return gulp.src(['src/**/*.{html, tpl, ejs}'])
-//     .pipe(plumber())
-//     .pipe(cached('includefile'))
-//     .pipe(fileinclude({
-//         prefix: '@@',
-//         basepath: '@file'
-//     }))
-//     .pipe(debug({title:'编译HTML:'}))
-//     .pipe(gulp.dest('dist'))
-//     .pipe(remember('includefile'))
-// });
 gulp.task('includefile', function () {
     gulp.src(['src/**/*.html'])
         .pipe(htmlImport('src/components/'))
-        .pipe(gulp.dest('dist'));
+        .pipe(debug({title:'编译HTML:'}))
+        .pipe(gulp.dest('dist'))
+        .pipe(remember('includecs'))
 })
 
 
 /**
- * 增量：利用fileinclude实现css模块化
+ * 增量：postcss转换
  */
 gulp.task('includecs', function() {
     return gulp.src(['src/**/*.css', '!src/assets/common/*.css'])
@@ -96,10 +84,7 @@ gulp.task('includecs', function() {
     
     .pipe(plumber())
     .pipe(cached('includecs'))
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file'
-    }))
+
     .pipe(debug({title:'编译CSS:'}))
     .pipe(gulp.dest('dist'))
     .pipe(remember('includecs'))

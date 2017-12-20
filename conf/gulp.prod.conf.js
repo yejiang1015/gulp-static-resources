@@ -15,7 +15,6 @@ var cache = require('gulp-cache');
 var imagemin = require('gulp-imagemin');
 var rjs = require('gulp-requirejs-optimize');
 var spriter = require('gulp-css-spriter');
-var fileinclude = require('gulp-file-include');
 var clean = require('gulp-clean');
 var htmlmin = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
@@ -27,6 +26,7 @@ var rjsConfig = require('./gulp.rjs.conf');
 
 var postcss    = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
+var htmlImport = require('gulp-html-import');
 
 /**
  * 生产环境预览服务器
@@ -76,13 +76,10 @@ gulp.task('copy:build', ['clean:build'],function() {
  * 引入文件编译
  */
 gulp.task('includefile:build', function() {
-    return gulp.src('src/**/*.{html,tpl}')
-    .pipe(debug({title:'复制:'}))
-    .pipe(fileinclude({
-        prefix:'@@',
-        basepath: '@file'
-    }))
-    .pipe(gulp.dest('dist'))
+    return gulp.src(['src/**/*.html'])
+        .pipe(htmlImport('src/components/'))
+        .pipe(debug({title:'复制:'}))
+        .pipe(gulp.dest('dist'));
 });
 
 
@@ -188,7 +185,7 @@ gulp.task('imagemin:build', function(){
 });
 
 /**
- * 利用fileinclude实现css模块化
+ * postcss转化
  */
 gulp.task('includecs:build', function() {
     return gulp.src(['src/**/*.css'])
@@ -196,10 +193,6 @@ gulp.task('includecs:build', function() {
     .pipe( postcss([ require('precss'), require('autoprefixer') ]) )
     .pipe( sourcemaps.write('.') )
 
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file'
-    }))
     .pipe(gulp.dest('dist'))
 });
 

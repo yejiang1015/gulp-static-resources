@@ -23,7 +23,6 @@
     "gulp-css-spriter": "^0.4.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-debug": "^3.1.0",
-    "gulp-file-include": "^1.0.0",
     "gulp-htmlmin": "^3.0.0",
     "gulp-imagemin": "^3.2.0",
     "gulp-livereload": "^3.8.1",
