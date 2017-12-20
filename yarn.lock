@@ -2082,6 +2082,13 @@ gulp-file-include@^1.0.0:
     gulp-util "^3.0.8"
     through2 "^2.0.3"
 
+gulp-html-import@^0.0.2:
+  version "0.0.2"
+  resolved "http://registry.npm.taobao.org/gulp-html-import/download/gulp-html-import-0.0.2.tgz#25994f33f3d81ab64be694b26d6f1da1146567fa"
+  dependencies:
+    gulp-util "^3.0.7"
+    through2 "^2.0.1"
+
 gulp-htmlmin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/gulp-htmlmin/-/gulp-htmlmin-3.0.0.tgz#19ea8002d1231d6b1f18a12d20f2a66a77770fb3"

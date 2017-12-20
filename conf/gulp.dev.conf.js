@@ -16,6 +16,7 @@ var cached = require('gulp-cached');
 
 var postcss    = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
+var htmlImport = require('gulp-html-import');
 
 /**
  * 服务器
@@ -64,19 +65,24 @@ gulp.task('copy', function() {
 /**
  * 增量：编译模板
  */
-gulp.task('includefile', function() {
-    // return gulp.src(['src/**/*.{html, tpl}', '!src/include', '!src/include/*'])
-    return gulp.src(['src/**/*.{html, tpl}'])
-    .pipe(plumber())
-    .pipe(cached('includefile'))
-    .pipe(fileinclude({
-        prefix: '@@',
-        basepath: '@file'
-    }))
-    .pipe(debug({title:'编译HTML:'}))
-    .pipe(gulp.dest('dist'))
-    .pipe(remember('includefile'))
-});
+// gulp.task('includefile', function() {
+//     // return gulp.src(['src/**/*.{html, tpl}', '!src/include', '!src/include/*'])
+//     return gulp.src(['src/**/*.{html, tpl, ejs}'])
+//     .pipe(plumber())
+//     .pipe(cached('includefile'))
+//     .pipe(fileinclude({
+//         prefix: '@@',
+//         basepath: '@file'
+//     }))
+//     .pipe(debug({title:'编译HTML:'}))
+//     .pipe(gulp.dest('dist'))
+//     .pipe(remember('includefile'))
+// });
+gulp.task('includefile', function () {
+    gulp.src(['src/**/*.html'])
+        .pipe(htmlImport('src/components/'))
+        .pipe(gulp.dest('dist'));
+})
 
 
 /**

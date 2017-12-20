@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    @@include("./components/meta.html",{"title":"首页"})
+    @import "meta.html"
 <body>
-    @@include("./components/header.html", {"page":"home"})
-    @@include("./components/footer.html")
+    @import "header.html"
+    <div>
+        <ul class="flex ui-pt-40 ui-mt-40 ui-pb-40 ui-mb-40">
+            <li class="flex-1 flex flex-row-center flex-col-center">首页d</li>
+            <li class="flex-1 flex flex-row-center flex-col-center">个人中心</li>
+            <li class="flex-1 flex flex-row-center flex-col-center">消息中心</li>
+            <li class="flex-1 flex flex-row-center flex-col-center">模板</li>
+        </ul>
+    </div>
+    <div class="df">地方ddsadf的的</div>
+    @import "footer.html"
 </body>
 </html>
 <script src="/home/index.js"></script>
