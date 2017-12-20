@@ -1,13 +1,13 @@
 {
-  "name": "gulp-config",
+  "name": "gulp-static-resources",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "基于gulp的前端模块化开发，静态模板编译，postcss，代码压缩，图片体积优化，seo友好，浏览器自动刷新，提升开发效率，解放F5和复制粘贴",
+  "main": "app.js",
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build"
   },
-  "author": "",
+  "author": "yejiang1015@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "amd-optimize": "^0.6.1",
