@@ -1,0 +1,11 @@
+/* 基本间距 s xm m xl l */
+$spaces: 5, 10, 15, 20, 40;
+
+/* 公共字体颜色 */
+$textColors: f60, 333, 666, 999, fff;
+
+/* 公共字体大小 */
+$textFonts: 12, 13, 14, 15, 16, 17, 18, 19, 20, 24;
+
+/* 公共背景颜色 */
+$backgroundColors: fff, ccc;

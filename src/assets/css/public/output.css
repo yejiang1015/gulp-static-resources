@@ -1,0 +1,155 @@
+@import "reset.css";
+@import "setting.css";
+
+
+.ui-fl-r {
+  float: right;
+}
+
+.ui-fl-l {
+  float: left;
+}
+
+.ui-ta-c {
+  text-align: center;
+}
+
+.ui-ta-l {
+  text-align: left;
+}
+
+.ui-ta-r {
+  text-align: right!important;
+}
+
+.ui-no-tap-highlight {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+.ui-text-strong {
+  font-weight: bold;
+}
+
+.ui-fw-n {
+  font-weight: normal;
+}
+
+.ui-link-block {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-d-b {
+  display: block;
+}
+
+.ui-d-n {
+  display: none!important;
+}
+
+.ui-fw-n {
+  font-weight: normal!important;
+}
+
+.ui-p-r {
+  position: relative;
+}
+
+.ui-p-a {
+  position: absolute;
+}
+
+.ui-p-f {
+  position: fixed;
+}
+
+.ui-ov-h {
+  overflow: hidden;
+}
+
+.ui-lh-standard {
+  line-height: 1.6;
+}
+
+.ui-d-ib {
+  height: 100%;
+  display: inline-block;
+}
+.ui-hover {
+  opacity: .9;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1024;
+  -webkit-backface-visibility: hidden;
+}
+
+.ui-vv {
+  visibility: visible;
+}
+
+.ui-vh {
+  visibility: hidden;
+}
+
+/* 公共的间隔 */
+@each $space in $spaces {
+  .ui-m-$(space) {
+    margin: $(space)px
+  }
+  .ui-mt-$(space) {
+    margin-top: $(space)px
+  }
+  .ui-mr-$(space) {
+    margin-right: $(space)px
+  }
+  .ui-mb-$(space) {
+    margin-bottom: $(space)px
+  }
+  .ui-ml-$(space) {
+    margin-left: $(space)px
+  }
+  .ui-p-$(space) {
+    padding: $(space)px
+  }
+  .ui-pt-$(space) {
+    padding-top: $(space)px
+  }
+  .ui-pr-$(space) {
+    padding-right: $(space)px
+  }
+  .ui-pb-$(space) {
+    padding-bottom: $(space)px
+  }
+  .ui-pl-$(space) {
+    padding-left: $(space)px
+  }
+}
+
+/* 生成字体颜色 */
+@each $color in $textColors {
+  .color-$(color) {
+    color: #$(color);
+  }
+}
+
+/* 生成背景颜色 */
+@each $bgColor in $backgroundColors {
+  .bg-$(bgColor) {
+    background-color: #$(bgColor);
+  }
+}
+
+/* 生成字体大小 */
+@each $fontSize in $textFonts {
+  .f$(fontSize) {
+    font-size: $(fontSize)px;
+  }
+}

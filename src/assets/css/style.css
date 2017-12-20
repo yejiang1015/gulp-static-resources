@@ -1,0 +1,9 @@
+@import "./public/output.css";
+@import "./header.css";
+
+.w-center {
+    width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

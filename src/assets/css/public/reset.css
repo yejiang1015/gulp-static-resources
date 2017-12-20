@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    line-height: 1;
+    -webkit-text-size-adjust: none;
+    font-size: inherit;
+  }
+  
+  a {
+    text-decoration: none;
+    background: 0 0;
+  }
+  
+  img {
+    border: 0;
+    vertical-align: top;
+  }
+  
+  button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    border: 0;
+    outline: none;
+    resize: none;
+    text-transform: none;
+    -webkit-appearance: button;
+    background: transparent;
+  }
+  
+  dd, dl, ol, ul {
+    list-style: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+  }
+  
+  em {
+    font-style: normal
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
