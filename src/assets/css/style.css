@@ -1,33 +1,6 @@
+@import "./bootstrap.css";
 @import "./public/output.css";
 @import "./header.css";
-
-.w-center {
+.container {
     width: 1200px;
-    margin: 0 auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-}
-
-.flex {
-    display: flex;
-}
-.flex-col {
-    display: flex;
-    flex-direction: column;
-}
-.flex-row-center {
-    justify-content: center;
-}
-.flex-col-center {
-    align-items: center;
-}
-.flex-1 {
-    flex: 1;
-}
-.flex-2 {
-    flex: 2;
-}
-
-.df {
-    color: red;
 }
