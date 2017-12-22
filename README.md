@@ -77,6 +77,40 @@ gulp-static-resources
 
 其他
 -----------
+
+    html编译任务
+    ``
+    // html文件编译任务最开始是使用gulp-file-include插件来实现的。但是当更改组件时不能实时编译并且相应到浏览器。并且如果没有修改内容就保存让其编译之前的内容就会报模板语法错误
+    // 之后改用gulp-html-import插件来实现，但是这个插件没有实现参数的传递编译功能，只是实现了简单的导入（import）的功能
+    // 现在使用gulp-include-html插件来实现，上面遇到的问题都得以解决 并且已经加入到开发环境和生产环境中
+
+    // 代码描述
+    var htmlImport = require("gulp-include-html"); // https://www.npmjs.com/package/gulp-include-html
+
+    gulp.task('includefile' , function(){   // 定义编译模板的任务为includefile
+    return gulp.src(['src/**/*.html'])      // 对所有的html文件进行编译
+        .pipe(htmlImport({                  // 使用插件功能
+            baseDir:'src/components/',      // 设置组件的更目录,在使用时直接使用组件名，插件会自动加上这里的路径进行拼接
+            ignore: ['src/components/']     // 因为模板里面有<%= title %>这样的语法，在单独编译这个组件html文件时会报错
+        }))                                  // 所以屏蔽插件对这里的文件进行编译
+        .pipe(debug({title:'编译HTML:'}))    // 打印日志
+        .pipe(gulp.dest("dist"));            // 编译之后的地址  
+    });
+
+    使用方法：
+    index.html -->
+        @@include('header.html', {
+            contents:'I am so smart',
+            title: '阿斯蒂芬'
+        })
+
+    header.html -->
+        <div class="span4"><%= contents %></div>
+        <div class="span4"><%= title %></div>
+
+    ``
+
+
     有待完善...
 
 参考地址：``https://github.com/bestsamcn/gulp-config``

@@ -26,7 +26,7 @@ var rjsConfig = require('./gulp.rjs.conf');
 
 var postcss    = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
-var htmlImport = require('gulp-html-import');
+var htmlImport = require("gulp-include-html"); // https://www.npmjs.com/package/gulp-include-html
 
 /**
  * 生产环境预览服务器
@@ -77,7 +77,10 @@ gulp.task('copy:build', ['clean:build'],function() {
  */
 gulp.task('includefile:build', function() {
     return gulp.src(['src/**/*.html'])
-        .pipe(htmlImport('src/components/'))
+        .pipe(htmlImport({
+            baseDir:'src/components/',
+            ignore: ['src/components/']
+        }))
         .pipe(debug({title:'复制:'}))
         .pipe(gulp.dest('dist'));
 });

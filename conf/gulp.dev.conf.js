@@ -15,7 +15,7 @@ var cached = require('gulp-cached');
 
 var postcss    = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
-var htmlImport = require('gulp-html-import');
+var htmlImport = require("gulp-include-html"); // https://www.npmjs.com/package/gulp-include-html
 
 /**
  * 服务器
@@ -64,14 +64,15 @@ gulp.task('copy', function() {
 /**
  * 增量：编译模板
  */
-gulp.task('includefile', function () {
-    gulp.src(['src/**/*.html'])
-        .pipe(htmlImport('src/components/'))
+gulp.task('includefile' , function(){
+    return gulp.src(['src/**/*.html'])
+        .pipe(htmlImport({
+            baseDir:'src/components/',
+            ignore: ['src/components/']
+        }))
         .pipe(debug({title:'编译HTML:'}))
-        .pipe(gulp.dest('dist'))
-        .pipe(remember('includecs'))
-})
-
+        .pipe(gulp.dest("dist"));
+});
 
 /**
  * 增量：postcss转换

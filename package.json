@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "autoprefixer": "^7.2.3",
-    "gulp-html-import": "^0.0.2",
+    "gulp-include-html": "^1.0.14",
     "gulp-postcss": "^7.0.0",
     "gulp-requirejs-optimize": "^1.2.0",
     "gulp-sourcemaps": "^2.6.1",
