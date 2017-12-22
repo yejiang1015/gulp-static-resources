@@ -111,7 +111,7 @@ gulp-static-resources
     ``
 
 
-    有待完善...
 
-参考地址：``https://github.com/bestsamcn/gulp-config``
----------
+...
+----------
+
